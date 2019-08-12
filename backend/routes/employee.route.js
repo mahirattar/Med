@@ -5,7 +5,7 @@ const employeeRoute = express.Router();
 // Employee model
 let Employee = require('../models/Employee');
 
-// Add Employee
+// Calucule d'IMC
 employeeRoute.route('/create').post((req, res, next) => {
   Employee.create(req.body, (error, data) => {
     if (error) {

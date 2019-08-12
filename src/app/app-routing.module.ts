@@ -6,8 +6,8 @@ import { EmployeeListComponent } from './components/employee-list/employee-list.
 import { EmployeeEditComponent } from './components/employee-edit/employee-edit.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'create-employee' },
-  { path: 'create-employee', component: EmployeeCreateComponent },
+  { path: '', pathMatch: 'full', redirectTo: 'imc-calcule' },
+  { path: 'imc-calcule', component: EmployeeCreateComponent },
   { path: 'edit-employee/:id', component: EmployeeEditComponent },
   { path: 'employees-list', component: EmployeeListComponent }  
 ];

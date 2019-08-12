@@ -9,12 +9,19 @@ let Employee = new Schema({
    email: {
       type: String
    },
-   designation: {
+   sexe: {
       type: String
+   },
+   poids: {
+      type: Number
+   },
+   taille: {
+      type: Number
    },
    phoneNumber: {
       type: Number
    }
+
 }, {
    collection: 'employees'
 })

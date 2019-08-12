@@ -3,16 +3,16 @@
      <!-- form card register -->
      <div class="card card-outline-secondary">
        <div class="card-header">
-         <h3 class="mb-0">Edit Employee</h3>
+         <h3 class="mb-0">Edition utilisateur</h3>
        </div>
        <div class="card-body">
          <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
 
            <div class="form-group">
-             <label for="inputName">Name</label>
+             <label for="inputName">Nom</label>
              <input class="form-control" type="text" formControlName="name">
              <div class="invalid-feedback" *ngIf="submitted && myForm.name.errors?.required">
-               Name is required.
+              le nom est obligatoir.
              </div>
            </div>
            <div class="form-group">
@@ -20,36 +20,36 @@
              <input class="form-control" type="text" formControlName="email">
              <!-- error -->
              <div class="invalid-feedback" *ngIf="submitted && myForm.email.errors?.required">
-               Enter your email.
+              Entrez votre email.
              </div>
              <div class="invalid-feedback" *ngIf="submitted && myForm.email.errors?.pattern">
-               Enter valid email.
+              Entrez un email valid.
              </div>
            </div>
 
            <div class="form-group">
-             <label for="inputPassword3">Designation</label>
+             <label for="inputPassword3">Sexe</label>
              <select class="custom-select form-control" (change)="updateProfile($event.target.value)"
-               formControlName="designation">
-               <option value="">Choose...</option>
+               formControlName="sexe">
+               <option value="">Choix...</option>
                <option *ngFor="let employeeProfile of EmployeeProfile" value="{{employeeProfile}}">{{employeeProfile}}
                </option>
              </select>
              <!-- error -->
-             <div class="invalid-feedback" *ngIf="submitted && myForm.designation.errors?.required">
-               Choose designation.
+             <div class="invalid-feedback" *ngIf="submitted && myForm.sexe.errors?.required">
+               Choix du sexe.
              </div>
            </div>
 
            <div class="form-group">
-             <label for="inputVerify3">Mobile No</label>
+             <label for="inputVerify3">Téléphone</label>
              <input class="form-control" type="text" formControlName="phoneNumber">
              <!-- error -->
              <div class="invalid-feedback" *ngIf="submitted && myForm.phoneNumber.errors?.required">
-               Enter your phone number.
+              Entrez votre numéro.
              </div>
              <div class="invalid-feedback" *ngIf="submitted && myForm.phoneNumber.errors?.pattern">
-               Enter Numbers Only
+              Format non accepté
              </div>
            </div>
 

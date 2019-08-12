@@ -15,7 +15,7 @@ export class EmployeeEditComponent implements OnInit {
   submitted = false;
   editForm: FormGroup;
   employeeData: Employee[];
-  EmployeeProfile: any = ['Finance', 'BDM', 'HR', 'Sales', 'Admin']
+  EmployeeProfile: any = ['Homme', 'Femme']
 
   constructor(
     public fb: FormBuilder,
@@ -31,14 +31,14 @@ export class EmployeeEditComponent implements OnInit {
     this.editForm = this.fb.group({
       name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
-      designation: ['', [Validators.required]],
+      sexe: ['', [Validators.required]],
       phoneNumber: ['', [Validators.required, Validators.pattern('^[0-9]+$')]]
     })
   }
 
   // Choose options with select-dropdown
   updateProfile(e) {
-    this.editForm.get('designation').setValue(e, {
+    this.editForm.get('sexe').setValue(e, {
       onlySelf: true
     })
   }
@@ -53,7 +53,7 @@ export class EmployeeEditComponent implements OnInit {
       this.editForm.setValue({
         name: data['name'],
         email: data['email'],
-        designation: data['designation'],
+        sexe: data['sexe'],
         phoneNumber: data['phoneNumber'],
       });
     });
@@ -63,7 +63,7 @@ export class EmployeeEditComponent implements OnInit {
     this.editForm = this.fb.group({
       name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
-      designation: ['', [Validators.required]],
+      sexe: ['', [Validators.required]],
       phoneNumber: ['', [Validators.required, Validators.pattern('^[0-9]+$')]]
     })
   }

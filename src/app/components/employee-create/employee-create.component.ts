@@ -12,7 +12,7 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 export class EmployeeCreateComponent implements OnInit {  
   submitted = false;
   employeeForm: FormGroup;
-  EmployeeProfile:any = ['Finance', 'BDM', 'HR', 'Sales', 'Admin']
+  EmployeeProfile:any = ['Homme', 'Femme']
   
   constructor(
     public fb: FormBuilder,
@@ -29,14 +29,16 @@ export class EmployeeCreateComponent implements OnInit {
     this.employeeForm = this.fb.group({
       name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
-      designation: ['', [Validators.required]],
+      sexe: ['', [Validators.required]],
+      poids: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
+      taille: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
       phoneNumber: ['', [Validators.required, Validators.pattern('^[0-9]+$')]]
     })
   }
 
-  // Choose designation with select dropdown
+  // Choose sexe with select dropdown
   updateProfile(e){
-    this.employeeForm.get('designation').setValue(e, {
+    this.employeeForm.get('sexe').setValue(e, {
       onlySelf: true
     })
   }

@@ -1,6 +1,8 @@
 export class Employee {
    name: string;
    email: string;
-   designation: string;
+   sexe: string;
+   poids: number;
+   taille: number;
    phoneNumber: number;
 }

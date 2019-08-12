@@ -1,4 +1,4 @@
-export class Employee {
+export class Utilisateur {
    name: string;
    email: string;
    sexe: string;

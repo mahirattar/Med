@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { EmployeeCreateComponent } from './components/employee-create/employee-create.component';
-import { EmployeeListComponent } from './components/employee-list/employee-list.component';
-import { EmployeeEditComponent } from './components/employee-edit/employee-edit.component';
+import { UtilisateurCreateComponent } from './components/utilisateur-create/utilisateur-create.component';
+import { UtilisateurListComponent } from './components/utilisateur-list/utilisateur-list.component';
+import { UtilisateurEditComponent } from './components/utilisateur-edit/utilisateur-edit.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'imc-calcule' },
-  { path: 'imc-calcule', component: EmployeeCreateComponent },
-  { path: 'edit-employee/:id', component: EmployeeEditComponent },
-  { path: 'employees-list', component: EmployeeListComponent }  
+  { path: 'imc-calcule', component: UtilisateurCreateComponent },
+  { path: 'edit-utilisateur/:id', component: UtilisateurEditComponent },
+  { path: 'utilisateurs-list', component: UtilisateurListComponent }  
 ];
 
 @NgModule({

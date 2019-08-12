@@ -4,15 +4,15 @@ import { Component, OnInit, NgZone } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
 @Component({
-  selector: 'app-employee-create',
-  templateUrl: './employee-create.component.html',
-  styleUrls: ['./employee-create.component.css']
+  selector: 'app-utilisateur-create',
+  templateUrl: './utilisateur-create.component.html',
+  styleUrls: ['./utilisateur-create.component.css']
 })
 
-export class EmployeeCreateComponent implements OnInit {  
+export class UtilisateurCreateComponent implements OnInit {  
   submitted = false;
-  employeeForm: FormGroup;
-  EmployeeProfile:any = ['Homme', 'Femme']
+  utilisateurForm: FormGroup;
+  UtilisateurProfile:any = ['Homme', 'Femme']
   
   constructor(
     public fb: FormBuilder,
@@ -26,7 +26,7 @@ export class EmployeeCreateComponent implements OnInit {
   ngOnInit() { }
 
   mainForm() {
-    this.employeeForm = this.fb.group({
+    this.utilisateurForm = this.fb.group({
       name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
       sexe: ['', [Validators.required]],
@@ -38,25 +38,25 @@ export class EmployeeCreateComponent implements OnInit {
 
   // Choose sexe with select dropdown
   updateProfile(e){
-    this.employeeForm.get('sexe').setValue(e, {
+    this.utilisateurForm.get('sexe').setValue(e, {
       onlySelf: true
     })
   }
 
   // Getter to access form control
   get myForm(){
-    return this.employeeForm.controls;
+    return this.utilisateurForm.controls;
   }
 
   onSubmit() {
     this.submitted = true;
-    if (!this.employeeForm.valid) {
+    if (!this.utilisateurForm.valid) {
       return false;
     } else {
-      this.apiService.createEmployee(this.employeeForm.value).subscribe(
+      this.apiService.createUtilisateur(this.utilisateurForm.value).subscribe(
         (res) => {
-          console.log('Employee successfully created!')
-          this.ngZone.run(() => this.router.navigateByUrl('/employees-list'))
+          console.log('Utilisateur successfully created!')
+          this.ngZone.run(() => this.router.navigateByUrl('/utilisateurs-list'))
         }, (error) => {
           console.log(error);
         });

@@ -15,7 +15,7 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   // Create
-  createEmployee(data): Observable<any> {
+  createUtilisateur(data): Observable<any> {
     let url = `${this.baseUri}/create`;
     return this.http.post(url, data)
       .pipe(
@@ -23,13 +23,13 @@ export class ApiService {
       )
   }
 
-  // Get all employees
-  getEmployees() {
+  // Get all utilisateurs
+  getUtilisateurs() {
     return this.http.get(`${this.baseUri}`);
   }
 
-  // Get employee
-  getEmployee(id): Observable<any> {
+  // Get utilisateur
+  getUtilisateur(id): Observable<any> {
     let url = `${this.baseUri}/read/${id}`;
     return this.http.get(url, {headers: this.headers}).pipe(
       map((res: Response) => {
@@ -39,16 +39,16 @@ export class ApiService {
     )
   }
 
-  // Update employee
-  updateEmployee(id, data): Observable<any> {
+  // Update utilisateur
+  updateUtilisateur(id, data): Observable<any> {
     let url = `${this.baseUri}/update/${id}`;
     return this.http.put(url, data, { headers: this.headers }).pipe(
       catchError(this.errorMgmt)
     )
   }
 
-  // Delete employee
-  deleteEmployee(id): Observable<any> {
+  // Delete utilisateur
+  deleteUtilisateur(id): Observable<any> {
     let url = `${this.baseUri}/delete/${id}`;
     return this.http.delete(url, { headers: this.headers }).pipe(
       catchError(this.errorMgmt)

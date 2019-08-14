@@ -39,7 +39,7 @@
         </div>
 
         <div class="form-group">
-          <label for="inputVerify3">Poids</label>
+          <label for="inputVerify3">Poids(kg)</label>
           <input class="form-control" type="text" formControlName="poids">
           <!-- error -->
           <div class="invalid-feedback" *ngIf="submitted && myForm.poids.errors?.required">
@@ -51,8 +51,8 @@
         </div>
 
         <div class="form-group">
-          <label for="inputVerify3">Taille</label>
-          <input class="form-control" type="text" formControlName="taille">
+          <label for="inputVerify3">Taille(cm)</label>
+          <input class="form-control" type="text" (ngModelChange)="changes()" formControlName="taille">
           <!-- error -->
           <div class="invalid-feedback" *ngIf="submitted && myForm.taille.errors?.required">
             Entrez votre taille.
@@ -73,9 +73,11 @@
             Format non accepté
           </div>
         </div>
-
+        <h3>Votre IMC est : ({{calcBMI()}} kg/m²)</h3>
+        <h3>Interprétation (selon l’OMS): {{categorize()}}</h3>
+        <div>{{category}}</div>
         <div class="form-group">
-          <button class="btn btn-success btn-lg btn-block" type="submit">Caluler</button>
+          <button class="btn btn-success btn-lg btn-block" type="submit">Détails...</button>
         </div>
       </form>
 
